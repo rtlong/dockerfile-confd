@@ -8,10 +8,6 @@ ADD https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}
 
 RUN chmod +x /usr/bin/confd
 
-COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/usr/bin/confd"]
 
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["/usr/bin/confd", "-version"]
+CMD ["-version"]
